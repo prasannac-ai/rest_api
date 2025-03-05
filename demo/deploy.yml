@@ -1,0 +1,17 @@
+- hosts: local
+  connection: local
+  tasks:
+    - name: Build Java Application
+      command: ls
+      args:
+        chdir: /var/lib/jenkins/workspace/first
+
+    - name: Copy JAR to Deployment Directory
+      copy:
+        src: /home/prasanna/devops/demo/target/demo-0.0.1-SNAPSHOT.jar
+        dest: /home/prasanna/devops/demo/target/devops-demo.jar
+        mode: '0755'
+        remote_src: yes  # Ensures the file is copied from the remote machine
+
+    - name: Run Application in Background
+      shell: "nohup java -jar /home/prasanna/devops/demo/target/devops-demo.jar >  /home/prasanna/devops/demo/target/devops-demo.log 2>&1 &"
