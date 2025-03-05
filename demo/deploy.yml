@@ -14,4 +14,4 @@
         remote_src: yes  # Ensures the file is copied from the remote machine
 
     - name: Run Application in Background
-      shell: "nohup java -jar /var/lib/jenkins/workspace/first/demo/target/devops-demo.jar > /var/lib/jenkins/workspace/first/demo/target/devops-demo.log 2>&1 &"
+      shell: "nohup java -jar /var/lib/jenkins/workspace/first/demo/target/devops-demo.jar > /tmp/devops-demo.log 2>&1 &"
