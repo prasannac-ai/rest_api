@@ -9,7 +9,11 @@ pipeline {
     stages {
         stage('Pull Code') {
             steps {
-                git branch: "${BRANCH}", url: "${GIT_REPO}"
+                                script {
+                    checkout([$class: 'GitSCM', 
+                        branches: [[name: '*/main']], 
+                        userRemoteConfigs: [[url: 'https://github.com/prasannac-ai/test.git']]
+                    ])
             }
         }
 
