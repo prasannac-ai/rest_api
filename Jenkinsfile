@@ -14,6 +14,7 @@ pipeline {
                         branches: [[name: '*/main']], 
                         userRemoteConfigs: [[url: 'https://github.com/prasannac-ai/test.git']]
                     ])
+                }
             }
         }
 
